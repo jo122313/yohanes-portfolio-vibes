@@ -21,7 +21,7 @@ const Index = () => {
       title: 'JobConnect Platform',
       description: 'Full-stack job search platform connecting job seekers with employers. Features include job listings, company profiles, application tracking, and user authentication.',
       tech: ['React', 'Node.js', 'MongoDB', 'Express.js', 'JWT'],
-      github: 'https://github.com/yohanestamirat/jobconnect',
+      github: 'https://github.com/jo122313/talentconnect',
       live: 'https://talentconnect-eight.vercel.app/',
       image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop'
     },
@@ -37,7 +37,7 @@ const Index = () => {
       title: 'Ethiopian Banks Foreign Exchange Rate',
       description: 'Real-time foreign exchange rate tracker for Ethiopian banks. Displays current exchange rates, historical data, and currency conversion tools.',
       tech: ['React', 'API Integration', 'Chart.js', 'Responsive Design'],
-      github: 'https://github.com/yohanestamirat/ethiopian-banks-exchange',
+      github: 'https://github.com/jo122313/ethiopian-banks-exchange',
       live: '#',
       image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&h=400&fit=crop'
     }
@@ -135,7 +135,7 @@ const Index = () => {
         <div className="text-center z-10 px-6">
           <div className="mb-8">
             <img 
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face" 
+              src="/Myimg.jpg" 
               alt="Yohanes Tamirat" 
               className="w-32 h-32 rounded-full mx-auto mb-6 border-4 border-purple-400 shadow-2xl animate-fade-in"
             />
@@ -445,7 +445,7 @@ const Index = () => {
       {/* Footer */}
       <footer className="py-8 px-6 bg-black/40 text-center">
         <p className="text-gray-400">
-          © 2024 Yohanes Tamirat. Built with ❤️ using React & Tailwind CSS
+          © 2024 Yohanes Tamirat.
         </p>
       </footer>
     </div>
