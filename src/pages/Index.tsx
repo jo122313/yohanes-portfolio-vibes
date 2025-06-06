@@ -135,7 +135,7 @@ const Index = () => {
         <div className="text-center z-10 px-6">
           <div className="mb-8">
             <img 
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face" 
+              src="/Myimg.jpg" 
               alt="Yohanes Tamirat" 
               className="w-32 h-32 rounded-full mx-auto mb-6 border-4 border-purple-400 shadow-2xl animate-fade-in"
             />
