@@ -1,6 +1,5 @@
-
 import { useState, useEffect } from 'react';
-import { ChevronDown, Github, Linkedin, Mail, ExternalLink, MessageCircle, X, Send, User, Code, Briefcase, Phone } from 'lucide-react';
+import { ChevronDown, Github, Linkedin, Mail, ExternalLink, MessageCircle, X, Send, User, Code, Briefcase, Phone, GraduationCap, Building } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -48,9 +47,23 @@ const Index = () => {
     { name: 'JavaScript/TypeScript', level: 90 },
     { name: 'React/Vue.js', level: 85 },
     { name: 'Node.js/Express', level: 80 },
-    { name: 'Python/Django', level: 75 },
+    { name: 'Python', level: 85 },
+    { name: 'Java', level: 80 },
+    { name: 'C++', level: 75 },
+    { name: '.NET Framework', level: 78 },
     { name: 'Database Design', level: 82 },
     { name: 'DevOps/AWS', level: 70 }
+  ];
+
+  const experiences = [
+    {
+      title: 'MERN Stack & .NET Developer',
+      company: 'Africom Technologies',
+      type: 'Internship',
+      duration: 'Student Internship',
+      description: 'Gained hands-on experience in full-stack development using MERN stack (MongoDB, Express.js, React, Node.js) and .NET framework. Worked on real-world projects and collaborated with experienced developers.',
+      skills: ['MongoDB', 'Express.js', 'React', 'Node.js', '.NET', 'C#', 'JavaScript']
+    }
   ];
 
   useEffect(() => {
@@ -80,10 +93,10 @@ const Index = () => {
     
     // Simple bot responses
     const responses = [
-      "Yohanes has 3+ years of experience in software development with expertise in modern web technologies.",
-      "He's proficient in React, Node.js, Python, and has worked on various full-stack projects.",
-      "Yohanes is passionate about creating efficient, scalable solutions and loves learning new technologies.",
-      "He's currently pursuing his degree in Software Engineering and actively seeking internship opportunities.",
+      "Yohanes has internship experience at Africom Technologies as a MERN Stack & .NET Developer, plus 3+ years of overall development experience.",
+      "He's proficient in JavaScript/TypeScript, React, Node.js, Python, Java, C++, and .NET framework with hands-on project experience.",
+      "As a Debre Berhan University student, Yohanes combines academic knowledge with practical industry experience from his internship.",
+      "Yohanes is passionate about creating efficient, scalable solutions and loves learning new technologies across multiple programming languages.",
       "You can contact him at yohanestamirat2023@gmail.com for collaboration or job opportunities!"
     ];
     
@@ -107,6 +120,7 @@ const Index = () => {
             <div className="hidden md:flex space-x-8">
               <a href="#home" className="hover:text-purple-400 transition-colors">Home</a>
               <a href="#about" className="hover:text-purple-400 transition-colors">About</a>
+              <a href="#experience" className="hover:text-purple-400 transition-colors">Experience</a>
               <a href="#projects" className="hover:text-purple-400 transition-colors">Projects</a>
               <a href="#skills" className="hover:text-purple-400 transition-colors">Skills</a>
               <a href="#contact" className="hover:text-purple-400 transition-colors">Contact</a>
@@ -134,7 +148,7 @@ const Index = () => {
             <span className="animate-pulse">|</span>
           </div>
           <p className="text-xl mb-8 max-w-2xl mx-auto text-gray-300 animate-fade-in">
-            Passionate software engineering student crafting innovative solutions with modern technologies
+            Debre Berhan University Software Engineering Student & Full-Stack Developer with industry experience
           </p>
           <div className="flex justify-center space-x-6 mb-12 animate-fade-in">
             <a href="https://github.com" className="p-3 bg-white/10 rounded-full hover:bg-white/20 transition-all hover:scale-110">
@@ -160,14 +174,14 @@ const Index = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6 animate-fade-in">
               <p className="text-lg text-gray-300 leading-relaxed">
-                I'm a dedicated software engineering student with a passion for creating innovative digital solutions. 
-                My journey in technology began with curiosity and has evolved into a deep commitment to mastering 
-                full-stack development.
+                I'm a dedicated Software Engineering student at Debre Berhan University with hands-on industry experience 
+                at Africom Technologies. My journey in technology combines academic excellence with practical application 
+                in real-world development environments.
               </p>
               <p className="text-lg text-gray-300 leading-relaxed">
-                I specialize in modern web technologies and enjoy working on projects that challenge me to learn 
-                and grow. When I'm not coding, you'll find me exploring new technologies, contributing to open-source 
-                projects, or planning my next big idea.
+                I specialize in modern web technologies including MERN stack and .NET framework, with proficiency in 
+                multiple programming languages. My internship experience has given me valuable insights into professional 
+                software development practices and team collaboration.
               </p>
               <div className="flex space-x-4">
                 <Button className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600">
@@ -179,6 +193,16 @@ const Index = () => {
               </div>
             </div>
             <div className="grid grid-cols-2 gap-6">
+              <Card className="p-6 bg-white/5 border-white/10 text-center hover:bg-white/10 transition-all">
+                <GraduationCap className="mx-auto mb-4 text-purple-400" size={32} />
+                <h3 className="font-semibold mb-2">Education</h3>
+                <p className="text-sm text-gray-400">Debre Berhan University Software Engineering Student</p>
+              </Card>
+              <Card className="p-6 bg-white/5 border-white/10 text-center hover:bg-white/10 transition-all">
+                <Building className="mx-auto mb-4 text-pink-400" size={32} />
+                <h3 className="font-semibold mb-2">Experience</h3>
+                <p className="text-sm text-gray-400">Africom Technologies Intern</p>
+              </Card>
               <Card className="p-6 bg-white/5 border-white/10 text-center hover:bg-white/10 transition-all">
                 <Code className="mx-auto mb-4 text-purple-400" size={32} />
                 <h3 className="font-semibold mb-2">Clean Code</h3>
@@ -194,8 +218,50 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Experience Section */}
+      <section id="experience" className="py-20 px-6 bg-black/20">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+            Professional Experience
+          </h2>
+          <div className="space-y-8">
+            {experiences.map((exp, index) => (
+              <Card key={index} className="bg-white/5 border-white/10 p-8 hover:bg-white/10 transition-all">
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                  <div>
+                    <h3 className="text-2xl font-semibold text-white mb-2">{exp.title}</h3>
+                    <div className="flex items-center space-x-4 text-gray-300">
+                      <span className="flex items-center">
+                        <Building size={16} className="mr-2 text-purple-400" />
+                        {exp.company}
+                      </span>
+                      <span className="px-3 py-1 bg-purple-500/20 text-purple-300 text-sm rounded-full">
+                        {exp.type}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="text-gray-400 mt-2 md:mt-0">
+                    {exp.duration}
+                  </div>
+                </div>
+                <p className="text-gray-300 mb-4 leading-relaxed">
+                  {exp.description}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {exp.skills.map((skill, skillIndex) => (
+                    <span key={skillIndex} className="px-3 py-1 bg-pink-500/20 text-pink-300 text-sm rounded-full">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Projects Section */}
-      <section id="projects" className="py-20 px-6 bg-black/20">
+      <section id="projects" className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
             Featured Projects
@@ -239,7 +305,7 @@ const Index = () => {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-20 px-6">
+      <section id="skills" className="py-20 px-6 bg-black/20">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
             Technical Skills
@@ -264,7 +330,7 @@ const Index = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 px-6 bg-black/20">
+      <section id="contact" className="py-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl font-bold mb-16 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
             Let's Work Together
