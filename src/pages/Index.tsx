@@ -1,12 +1,387 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import { useState, useEffect } from 'react';
+import { ChevronDown, Github, Linkedin, Mail, ExternalLink, MessageCircle, X, Send, User, Code, Briefcase, Phone } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Card } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
 
 const Index = () => {
+  const [typedText, setTypedText] = useState('');
+  const [currentRole, setCurrentRole] = useState(0);
+  const [isChatOpen, setIsChatOpen] = useState(false);
+  const [chatMessages, setChatMessages] = useState([
+    { type: 'bot', message: 'Hi! I\'m Yohanes\' AI assistant. Ask me anything about his skills, projects, or experience!' }
+  ]);
+  const [currentMessage, setCurrentMessage] = useState('');
+  
+  const roles = ['Software Engineer', 'Full Stack Developer', 'Problem Solver', 'Tech Enthusiast'];
+  
+  const projects = [
+    {
+      title: 'E-Commerce Platform',
+      description: 'Full-stack e-commerce solution with React, Node.js, and MongoDB. Features include user authentication, payment integration, and admin dashboard.',
+      tech: ['React', 'Node.js', 'MongoDB', 'Stripe'],
+      github: '#',
+      live: '#',
+      image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop'
+    },
+    {
+      title: 'Task Management App',
+      description: 'Collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.',
+      tech: ['Vue.js', 'Firebase', 'Vuex', 'CSS3'],
+      github: '#',
+      live: '#',
+      image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop'
+    },
+    {
+      title: 'Weather Dashboard',
+      description: 'Beautiful weather application with location-based forecasts, interactive maps, and detailed weather analytics.',
+      tech: ['React', 'TypeScript', 'OpenWeather API', 'Chart.js'],
+      github: '#',
+      live: '#',
+      image: 'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=600&h=400&fit=crop'
+    }
+  ];
+
+  const skills = [
+    { name: 'JavaScript/TypeScript', level: 90 },
+    { name: 'React/Vue.js', level: 85 },
+    { name: 'Node.js/Express', level: 80 },
+    { name: 'Python/Django', level: 75 },
+    { name: 'Database Design', level: 82 },
+    { name: 'DevOps/AWS', level: 70 }
+  ];
+
+  useEffect(() => {
+    const currentText = roles[currentRole];
+    let index = 0;
+    
+    const typeWriter = () => {
+      if (index < currentText.length) {
+        setTypedText(currentText.slice(0, index + 1));
+        index++;
+        setTimeout(typeWriter, 100);
+      } else {
+        setTimeout(() => {
+          setTypedText('');
+          setCurrentRole((prev) => (prev + 1) % roles.length);
+        }, 2000);
+      }
+    };
+    
+    typeWriter();
+  }, [currentRole]);
+
+  const handleChatSubmit = () => {
+    if (!currentMessage.trim()) return;
+    
+    setChatMessages(prev => [...prev, { type: 'user', message: currentMessage }]);
+    
+    // Simple bot responses
+    const responses = [
+      "Yohanes has 3+ years of experience in software development with expertise in modern web technologies.",
+      "He's proficient in React, Node.js, Python, and has worked on various full-stack projects.",
+      "Yohanes is passionate about creating efficient, scalable solutions and loves learning new technologies.",
+      "He's currently pursuing his degree in Software Engineering and actively seeking internship opportunities.",
+      "You can contact him at yohanestamirat2023@gmail.com for collaboration or job opportunities!"
+    ];
+    
+    setTimeout(() => {
+      const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+      setChatMessages(prev => [...prev, { type: 'bot', message: randomResponse }]);
+    }, 1000);
+    
+    setCurrentMessage('');
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white">
+      {/* Navigation */}
+      <nav className="fixed top-0 w-full z-50 bg-black/20 backdrop-blur-md border-b border-white/10">
+        <div className="max-w-7xl mx-auto px-6 py-4">
+          <div className="flex justify-between items-center">
+            <div className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+              YT
+            </div>
+            <div className="hidden md:flex space-x-8">
+              <a href="#home" className="hover:text-purple-400 transition-colors">Home</a>
+              <a href="#about" className="hover:text-purple-400 transition-colors">About</a>
+              <a href="#projects" className="hover:text-purple-400 transition-colors">Projects</a>
+              <a href="#skills" className="hover:text-purple-400 transition-colors">Skills</a>
+              <a href="#contact" className="hover:text-purple-400 transition-colors">Contact</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 animate-pulse"></div>
+        <div className="text-center z-10 px-6">
+          <div className="mb-8">
+            <img 
+              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face" 
+              alt="Yohanes Tamirat" 
+              className="w-32 h-32 rounded-full mx-auto mb-6 border-4 border-purple-400 shadow-2xl animate-fade-in"
+            />
+          </div>
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
+            Hi, I'm <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Yohanes</span>
+          </h1>
+          <div className="text-2xl md:text-4xl mb-8 h-12 animate-fade-in">
+            I'm a <span className="text-purple-400 font-semibold">{typedText}</span>
+            <span className="animate-pulse">|</span>
+          </div>
+          <p className="text-xl mb-8 max-w-2xl mx-auto text-gray-300 animate-fade-in">
+            Passionate software engineering student crafting innovative solutions with modern technologies
+          </p>
+          <div className="flex justify-center space-x-6 mb-12 animate-fade-in">
+            <a href="https://github.com" className="p-3 bg-white/10 rounded-full hover:bg-white/20 transition-all hover:scale-110">
+              <Github size={24} />
+            </a>
+            <a href="https://linkedin.com" className="p-3 bg-white/10 rounded-full hover:bg-white/20 transition-all hover:scale-110">
+              <Linkedin size={24} />
+            </a>
+            <a href="mailto:yohanestamirat2023@gmail.com" className="p-3 bg-white/10 rounded-full hover:bg-white/20 transition-all hover:scale-110">
+              <Mail size={24} />
+            </a>
+          </div>
+          <ChevronDown className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce" size={32} />
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="py-20 px-6">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+            About Me
+          </h2>
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6 animate-fade-in">
+              <p className="text-lg text-gray-300 leading-relaxed">
+                I'm a dedicated software engineering student with a passion for creating innovative digital solutions. 
+                My journey in technology began with curiosity and has evolved into a deep commitment to mastering 
+                full-stack development.
+              </p>
+              <p className="text-lg text-gray-300 leading-relaxed">
+                I specialize in modern web technologies and enjoy working on projects that challenge me to learn 
+                and grow. When I'm not coding, you'll find me exploring new technologies, contributing to open-source 
+                projects, or planning my next big idea.
+              </p>
+              <div className="flex space-x-4">
+                <Button className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600">
+                  Download CV
+                </Button>
+                <Button variant="outline" className="border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white">
+                  View Projects
+                </Button>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-6">
+              <Card className="p-6 bg-white/5 border-white/10 text-center hover:bg-white/10 transition-all">
+                <Code className="mx-auto mb-4 text-purple-400" size={32} />
+                <h3 className="font-semibold mb-2">Clean Code</h3>
+                <p className="text-sm text-gray-400">Writing maintainable and efficient code</p>
+              </Card>
+              <Card className="p-6 bg-white/5 border-white/10 text-center hover:bg-white/10 transition-all">
+                <Briefcase className="mx-auto mb-4 text-pink-400" size={32} />
+                <h3 className="font-semibold mb-2">Problem Solving</h3>
+                <p className="text-sm text-gray-400">Analytical thinking and creative solutions</p>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section id="projects" className="py-20 px-6 bg-black/20">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+            Featured Projects
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.map((project, index) => (
+              <Card key={index} className="bg-white/5 border-white/10 overflow-hidden hover:scale-105 transition-all duration-300 group">
+                <div className="relative overflow-hidden">
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold mb-3">{project.title}</h3>
+                  <p className="text-gray-400 mb-4 text-sm">{project.description}</p>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.tech.map((tech, techIndex) => (
+                      <span key={techIndex} className="px-3 py-1 bg-purple-500/20 text-purple-300 text-xs rounded-full">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="flex space-x-4">
+                    <a href={project.github} className="flex items-center text-gray-400 hover:text-white transition-colors">
+                      <Github size={16} className="mr-2" />
+                      Code
+                    </a>
+                    <a href={project.live} className="flex items-center text-gray-400 hover:text-white transition-colors">
+                      <ExternalLink size={16} className="mr-2" />
+                      Live Demo
+                    </a>
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Skills Section */}
+      <section id="skills" className="py-20 px-6">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+            Technical Skills
+          </h2>
+          <div className="space-y-8">
+            {skills.map((skill, index) => (
+              <div key={index} className="animate-fade-in">
+                <div className="flex justify-between mb-3">
+                  <span className="text-lg font-medium">{skill.name}</span>
+                  <span className="text-purple-400">{skill.level}%</span>
+                </div>
+                <div className="w-full bg-gray-800 rounded-full h-3">
+                  <div 
+                    className="bg-gradient-to-r from-purple-500 to-pink-500 h-3 rounded-full transition-all duration-1000 ease-out"
+                    style={{ width: `${skill.level}%` }}
+                  ></div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-20 px-6 bg-black/20">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl font-bold mb-16 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+            Let's Work Together
+          </h2>
+          <div className="grid md:grid-cols-2 gap-12">
+            <div className="space-y-8">
+              <div className="text-left">
+                <h3 className="text-2xl font-semibold mb-6">Get In Touch</h3>
+                <p className="text-gray-300 mb-8">
+                  I'm always open to discussing new opportunities, interesting projects, or just having a chat about technology.
+                </p>
+                <div className="space-y-4">
+                  <div className="flex items-center space-x-4">
+                    <Mail className="text-purple-400" size={20} />
+                    <span>yohanestamirat2023@gmail.com</span>
+                  </div>
+                  <div className="flex items-center space-x-4">
+                    <Phone className="text-purple-400" size={20} />
+                    <span>Available upon request</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <Card className="p-8 bg-white/5 border-white/10">
+              <form className="space-y-6">
+                <div>
+                  <Input 
+                    placeholder="Your Name" 
+                    className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                  />
+                </div>
+                <div>
+                  <Input 
+                    placeholder="Your Email" 
+                    type="email"
+                    className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                  />
+                </div>
+                <div>
+                  <Textarea 
+                    placeholder="Your Message" 
+                    rows={4}
+                    className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                  />
+                </div>
+                <Button className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600">
+                  Send Message
+                </Button>
+              </form>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Chatbot */}
+      <div className="fixed bottom-6 right-6 z-50">
+        {!isChatOpen ? (
+          <Button
+            onClick={() => setIsChatOpen(true)}
+            className="w-14 h-14 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 shadow-lg hover:scale-110 transition-all"
+          >
+            <MessageCircle size={24} />
+          </Button>
+        ) : (
+          <Card className="w-80 h-96 bg-black/90 border-white/20 flex flex-col">
+            <div className="flex justify-between items-center p-4 border-b border-white/20">
+              <h3 className="font-semibold">Chat with AI Assistant</h3>
+              <Button
+                onClick={() => setIsChatOpen(false)}
+                variant="ghost"
+                size="sm"
+                className="text-gray-400 hover:text-white"
+              >
+                <X size={16} />
+              </Button>
+            </div>
+            <div className="flex-1 p-4 space-y-4 overflow-y-auto">
+              {chatMessages.map((msg, index) => (
+                <div key={index} className={`flex ${msg.type === 'user' ? 'justify-end' : 'justify-start'}`}>
+                  <div className={`max-w-xs p-3 rounded-lg ${
+                    msg.type === 'user' 
+                      ? 'bg-purple-500 text-white' 
+                      : 'bg-white/10 text-gray-300'
+                  }`}>
+                    <p className="text-sm">{msg.message}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="p-4 border-t border-white/20">
+              <div className="flex space-x-2">
+                <Input
+                  placeholder="Ask me anything..."
+                  value={currentMessage}
+                  onChange={(e) => setCurrentMessage(e.target.value)}
+                  onKeyPress={(e) => e.key === 'Enter' && handleChatSubmit()}
+                  className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                />
+                <Button 
+                  onClick={handleChatSubmit}
+                  size="sm"
+                  className="bg-purple-500 hover:bg-purple-600"
+                >
+                  <Send size={16} />
+                </Button>
+              </div>
+            </div>
+          </Card>
+        )}
       </div>
+
+      {/* Footer */}
+      <footer className="py-8 px-6 bg-black/40 text-center">
+        <p className="text-gray-400">
+          © 2024 Yohanes Tamirat. Built with ❤️ using React & Tailwind CSS
+        </p>
+      </footer>
     </div>
   );
 };
