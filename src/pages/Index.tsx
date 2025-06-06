@@ -18,28 +18,28 @@ const Index = () => {
   
   const projects = [
     {
-      title: 'E-Commerce Platform',
-      description: 'Full-stack e-commerce solution with React, Node.js, and MongoDB. Features include user authentication, payment integration, and admin dashboard.',
-      tech: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-      github: '#',
-      live: '#',
-      image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop'
+      title: 'JobConnect Platform',
+      description: 'Full-stack job search platform connecting job seekers with employers. Features include job listings, company profiles, application tracking, and user authentication.',
+      tech: ['React', 'Node.js', 'MongoDB', 'Express.js', 'JWT'],
+      github: 'https://github.com/yohanestamirat/jobconnect',
+      live: 'https://talentconnect-eight.vercel.app/',
+      image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop'
     },
     {
-      title: 'Task Management App',
-      description: 'Collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.',
-      tech: ['Vue.js', 'Firebase', 'Vuex', 'CSS3'],
-      github: '#',
+      title: 'Contact Management System',
+      description: 'Comprehensive contact management application with CRUD operations, search functionality, and organized contact categorization for efficient relationship management.',
+      tech: ['React', 'TypeScript', 'Local Storage', 'CSS3'],
+      github: 'https://github.com/yohanestamirat/contact-management',
       live: '#',
-      image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop'
+      image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&h=400&fit=crop'
     },
     {
-      title: 'Weather Dashboard',
-      description: 'Beautiful weather application with location-based forecasts, interactive maps, and detailed weather analytics.',
-      tech: ['React', 'TypeScript', 'OpenWeather API', 'Chart.js'],
-      github: '#',
+      title: 'Ethiopian Banks Foreign Exchange Rate',
+      description: 'Real-time foreign exchange rate tracker for Ethiopian banks. Displays current exchange rates, historical data, and currency conversion tools.',
+      tech: ['React', 'API Integration', 'Chart.js', 'Responsive Design'],
+      github: 'https://github.com/yohanestamirat/ethiopian-banks-exchange',
       live: '#',
-      image: 'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=600&h=400&fit=crop'
+      image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&h=400&fit=crop'
     }
   ];
 
