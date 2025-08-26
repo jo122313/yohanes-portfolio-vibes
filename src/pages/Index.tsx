@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ChevronDown, Github, Linkedin, Mail, ExternalLink, MessageCircle, X, Send, User, Code, Briefcase, Phone, GraduationCap, Building } from 'lucide-react';
+import { ChevronDown, Github, Linkedin, Mail, ExternalLink, MessageCircle, X, Send, User, Code, Briefcase, Phone, GraduationCap, Building, Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -112,63 +112,76 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 bg-black/20 backdrop-blur-md border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-6 py-4">
-          <div className="flex justify-between items-center">
-            <div className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-              YT
-            </div>
+      <nav className="fixed top-0 left-0 right-0 z-50 glass border-b border-border/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            <div className="font-bold text-xl gradient-text">Yohanes Tamirat</div>
             <div className="hidden md:flex space-x-8">
-              <a href="#home" className="hover:text-purple-400 transition-colors">Home</a>
-              <a href="#about" className="hover:text-purple-400 transition-colors">About</a>
-              <a href="#experience" className="hover:text-purple-400 transition-colors">Experience</a>
-              <a href="#projects" className="hover:text-purple-400 transition-colors">Projects</a>
-              <a href="#skills" className="hover:text-purple-400 transition-colors">Skills</a>
-              <a href="#contact" className="hover:text-purple-400 transition-colors">Contact</a>
+              <a href="#about" className="text-muted-foreground hover:text-primary transition-colors duration-200 relative after:absolute after:w-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full">About</a>
+              <a href="#experience" className="text-muted-foreground hover:text-primary transition-colors duration-200 relative after:absolute after:w-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full">Experience</a>
+              <a href="#projects" className="text-muted-foreground hover:text-primary transition-colors duration-200 relative after:absolute after:w-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full">Projects</a>
+              <a href="#skills" className="text-muted-foreground hover:text-primary transition-colors duration-200 relative after:absolute after:w-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full">Skills</a>
+              <a href="#contact" className="text-muted-foreground hover:text-primary transition-colors duration-200 relative after:absolute after:w-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full">Contact</a>
             </div>
           </div>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 animate-pulse"></div>
-        <div className="text-center z-10 px-6">
-          <div className="mb-8">
-            <img 
-              src="/Myimg.jpg" 
-              alt="Yohanes Tamirat" 
-              className="w-32 h-32 rounded-full mx-auto mb-6 border-4 border-purple-400 shadow-2xl animate-fade-in"
-            />
+      <section id="home" className="relative pt-24 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden min-h-screen flex items-center">
+        {/* Background gradient effects */}
+        <div className="absolute inset-0 bg-gradient-accent opacity-30"></div>
+        <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-primary rounded-full blur-3xl opacity-20 animate-floating"></div>
+        <div className="absolute bottom-10 right-10 w-96 h-96 bg-gradient-primary rounded-full blur-3xl opacity-10 animate-floating-delayed"></div>
+        
+        <div className="max-w-7xl mx-auto relative z-10 text-center">
+          <div className="animate-slide-in-up">
+            <div className="relative inline-block mb-8">
+              <img 
+                src="/Myimg.jpg" 
+                alt="Yohanes Tamirat" 
+                className="w-32 h-32 rounded-full mx-auto mb-6 object-cover border-4 border-primary glow-primary hover-lift"
+              />
+              <div className="absolute -top-2 -right-2 w-8 h-8 bg-primary rounded-full animate-pulse-glow"></div>
+            </div>
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
-            Hi, I'm <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Yohanes</span>
-          </h1>
-          <div className="text-2xl md:text-4xl mb-8 h-12 animate-fade-in">
-            I'm a <span className="text-purple-400 font-semibold">{typedText}</span>
-            <span className="animate-pulse">|</span>
+          
+          <div className="animate-slide-in-up" style={{animationDelay: '0.2s'}}>
+            <h1 className="text-5xl md:text-7xl font-bold mb-6">
+              Hi, I'm <span className="gradient-text">Yohanes</span>
+            </h1>
           </div>
-          <p className="text-xl mb-8 max-w-2xl mx-auto text-gray-300 animate-fade-in">
-            Software Engineer & Full-Stack Developer with industry experience
-          </p>
-          <div className="flex justify-center space-x-6 mb-12 animate-fade-in">
-            <a href="https://github.com/jo122313" className="p-3 bg-white/10 rounded-full hover:bg-white/20 transition-all hover:scale-110">
-              <Github size={24} />
+          
+          <div className="animate-slide-in-up" style={{animationDelay: '0.4s'}}>
+            <div className="text-2xl md:text-4xl mb-8 h-12">
+              I'm a <span className="gradient-text font-semibold">{typedText}</span>
+              <span className="animate-pulse">|</span>
+            </div>
+          </div>
+          
+          <div className="animate-slide-in-up" style={{animationDelay: '0.6s'}}>
+            <p className="text-xl mb-8 max-w-2xl mx-auto text-muted-foreground leading-relaxed">
+              Software Engineer & Full-Stack Developer with industry experience
+            </p>
+          </div>
+          
+          <div className="flex justify-center space-x-6 mb-12 animate-slide-in-up" style={{animationDelay: '0.8s'}}>
+            <a href="https://github.com/jo122313" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full glass hover-lift transition-all duration-300 hover:text-primary group">
+              <Github className="w-8 h-8 group-hover:animate-pulse" />
             </a>
-            <a href="https://www.linkedin.com/in/yohanes-tamirat-890a99369?fromQR=1" className="p-3 bg-white/10 rounded-full hover:bg-white/20 transition-all hover:scale-110">
-              <Linkedin size={24} />
+            <a href="https://www.linkedin.com/in/yohanes-tamirat-890a99369?fromQR=1" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full glass hover-lift transition-all duration-300 hover:text-primary group">
+              <Linkedin className="w-8 h-8 group-hover:animate-pulse" />
             </a>
-            <a href="https://www.instagram.com/yoha422?igsh=MTFibnRiaTh5Z3R3dQ%3D%3D&utm_source=qr" className="p-3 bg-white/10 rounded-full hover:bg-white/20 transition-all hover:scale-110">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-              </svg>
+            <a href="https://www.instagram.com/yoha422?igsh=MTFibnRiaTh5Z3R3dQ%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full glass hover-lift transition-all duration-300 hover:text-primary group">
+              <Instagram className="w-8 h-8 group-hover:animate-pulse" />
             </a>
-            <a href="mailto:yohanestamirat2023@gmail.com" className="p-3 bg-white/10 rounded-full hover:bg-white/20 transition-all hover:scale-110">
-              <Mail size={24} />
+            <a href="mailto:yohanestamirat2023@gmail.com" className="p-3 rounded-full glass hover-lift transition-all duration-300 hover:text-primary group">
+              <Mail className="w-8 h-8 group-hover:animate-pulse" />
             </a>
           </div>
+          
           <ChevronDown className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce" size={32} />
         </div>
       </section>
@@ -176,50 +189,50 @@ const Index = () => {
       {/* About Section */}
       <section id="about" className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+          <h2 className="text-4xl font-bold text-center mb-16 gradient-text">
             About Me
           </h2>
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6 animate-fade-in">
-              <p className="text-lg text-gray-300 leading-relaxed">
+            <div className="space-y-6 animate-slide-in-left">
+              <p className="text-lg text-muted-foreground leading-relaxed">
                 I'm a dedicated Software Engineer and graduate from Debre Berhan University with hands-on industry experience 
                 at Africom Technologies. My journey in technology combines academic excellence with practical application 
                 in real-world development environments.
               </p>
-              <p className="text-lg text-gray-300 leading-relaxed">
+              <p className="text-lg text-muted-foreground leading-relaxed">
                 I specialize in modern web technologies including MERN stack and .NET framework, with proficiency in 
                 multiple programming languages. My internship experience has given me valuable insights into professional 
                 software development practices and team collaboration.
               </p>
               <div className="flex space-x-4">
-                <Button className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600">
+                <Button className="bg-gradient-primary hover:glow-primary">
                   Download CV
                 </Button>
-                <Button variant="outline" className="border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white">
+                <Button variant="outline" className="hover-lift">
                   View Projects
                 </Button>
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-6">
-              <Card className="p-6 bg-white/5 border-white/10 text-center hover:bg-white/10 transition-all">
-                <GraduationCap className="mx-auto mb-4 text-purple-400" size={32} />
+            <div className="grid grid-cols-2 gap-6 animate-slide-in-right">
+              <Card className="glass p-6 text-center hover-lift glow-card">
+                <GraduationCap className="mx-auto mb-4 text-primary" size={32} />
                 <h3 className="font-semibold mb-2">Education</h3>
-                <p className="text-sm text-gray-400">Debre Berhan University Software Engineering Graduate</p>
+                <p className="text-sm text-muted-foreground">Debre Berhan University Software Engineering Graduate</p>
               </Card>
-              <Card className="p-6 bg-white/5 border-white/10 text-center hover:bg-white/10 transition-all">
-                <Building className="mx-auto mb-4 text-pink-400" size={32} />
+              <Card className="glass p-6 text-center hover-lift glow-card">
+                <Building className="mx-auto mb-4 text-secondary" size={32} />
                 <h3 className="font-semibold mb-2">Experience</h3>
-                <p className="text-sm text-gray-400">Africom Technologies Intern</p>
+                <p className="text-sm text-muted-foreground">Africom Technologies Intern</p>
               </Card>
-              <Card className="p-6 bg-white/5 border-white/10 text-center hover:bg-white/10 transition-all">
-                <Code className="mx-auto mb-4 text-purple-400" size={32} />
+              <Card className="glass p-6 text-center hover-lift glow-card">
+                <Code className="mx-auto mb-4 text-primary" size={32} />
                 <h3 className="font-semibold mb-2">Clean Code</h3>
-                <p className="text-sm text-gray-400">Writing maintainable and efficient code</p>
+                <p className="text-sm text-muted-foreground">Writing maintainable and efficient code</p>
               </Card>
-              <Card className="p-6 bg-white/5 border-white/10 text-center hover:bg-white/10 transition-all">
-                <Briefcase className="mx-auto mb-4 text-pink-400" size={32} />
+              <Card className="glass p-6 text-center hover-lift glow-card">
+                <Briefcase className="mx-auto mb-4 text-secondary" size={32} />
                 <h3 className="font-semibold mb-2">Problem Solving</h3>
-                <p className="text-sm text-gray-400">Analytical thinking and creative solutions</p>
+                <p className="text-sm text-muted-foreground">Analytical thinking and creative solutions</p>
               </Card>
             </div>
           </div>
@@ -227,37 +240,37 @@ const Index = () => {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="py-20 px-6 bg-black/20">
+      <section id="experience" className="py-20 px-6 bg-surface">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+          <h2 className="text-4xl font-bold text-center mb-16 gradient-text">
             Professional Experience
           </h2>
           <div className="space-y-8">
             {experiences.map((exp, index) => (
-              <Card key={index} className="bg-white/5 border-white/10 p-8 hover:bg-white/10 transition-all">
+              <Card key={index} className="glass p-8 hover-lift glow-card animate-slide-in-up">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                   <div>
-                    <h3 className="text-2xl font-semibold text-white mb-2">{exp.title}</h3>
-                    <div className="flex items-center space-x-4 text-gray-300">
+                    <h3 className="text-2xl font-semibold text-foreground mb-2">{exp.title}</h3>
+                    <div className="flex items-center space-x-4 text-muted-foreground">
                       <span className="flex items-center">
-                        <Building size={16} className="mr-2 text-purple-400" />
+                        <Building size={16} className="mr-2 text-primary" />
                         {exp.company}
                       </span>
-                      <span className="px-3 py-1 bg-purple-500/20 text-purple-300 text-sm rounded-full">
+                      <span className="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">
                         {exp.type}
                       </span>
                     </div>
                   </div>
-                  <div className="text-gray-400 mt-2 md:mt-0">
+                  <div className="text-muted-foreground mt-2 md:mt-0">
                     {exp.duration}
                   </div>
                 </div>
-                <p className="text-gray-300 mb-4 leading-relaxed">
+                <p className="text-muted-foreground mb-4 leading-relaxed">
                   {exp.description}
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {exp.skills.map((skill, skillIndex) => (
-                    <span key={skillIndex} className="px-3 py-1 bg-pink-500/20 text-pink-300 text-sm rounded-full">
+                    <span key={skillIndex} className="px-3 py-1 bg-secondary/20 text-secondary text-sm rounded-full">
                       {skill}
                     </span>
                   ))}
@@ -271,36 +284,36 @@ const Index = () => {
       {/* Projects Section */}
       <section id="projects" className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+          <h2 className="text-4xl font-bold text-center mb-16 gradient-text">
             Featured Projects
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
-              <Card key={index} className="bg-white/5 border-white/10 overflow-hidden hover:scale-105 transition-all duration-300 group">
+              <Card key={index} className="glass overflow-hidden hover-lift glow-card group animate-scale-in">
                 <div className="relative overflow-hidden">
                   <img 
                     src={project.image} 
                     alt={project.title}
                     className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-semibold mb-3">{project.title}</h3>
-                  <p className="text-gray-400 mb-4 text-sm">{project.description}</p>
+                  <p className="text-muted-foreground mb-4 text-sm">{project.description}</p>
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.tech.map((tech, techIndex) => (
-                      <span key={techIndex} className="px-3 py-1 bg-purple-500/20 text-purple-300 text-xs rounded-full">
+                      <span key={techIndex} className="px-3 py-1 bg-primary/20 text-primary text-xs rounded-full">
                         {tech}
                       </span>
                     ))}
                   </div>
                   <div className="flex space-x-4">
-                    <a href={project.github} className="flex items-center text-gray-400 hover:text-white transition-colors">
+                    <a href={project.github} className="flex items-center text-muted-foreground hover:text-primary transition-colors">
                       <Github size={16} className="mr-2" />
                       Code
                     </a>
-                    <a href={project.live} className="flex items-center text-gray-400 hover:text-white transition-colors">
+                    <a href={project.live} className="flex items-center text-muted-foreground hover:text-primary transition-colors">
                       <ExternalLink size={16} className="mr-2" />
                       Live Demo
                     </a>
@@ -313,21 +326,21 @@ const Index = () => {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-20 px-6 bg-black/20">
+      <section id="skills" className="py-20 px-6 bg-surface">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+          <h2 className="text-4xl font-bold text-center mb-16 gradient-text">
             Technical Skills
           </h2>
           <div className="space-y-8">
             {skills.map((skill, index) => (
-              <div key={index} className="animate-fade-in">
+              <div key={index} className="animate-slide-in-up" style={{animationDelay: `${index * 0.1}s`}}>
                 <div className="flex justify-between mb-3">
                   <span className="text-lg font-medium">{skill.name}</span>
-                  <span className="text-purple-400">{skill.level}%</span>
+                  <span className="text-primary">{skill.level}%</span>
                 </div>
-                <div className="w-full bg-gray-800 rounded-full h-3">
+                <div className="w-full bg-muted rounded-full h-3">
                   <div 
-                    className="bg-gradient-to-r from-purple-500 to-pink-500 h-3 rounded-full transition-all duration-1000 ease-out"
+                    className="bg-gradient-primary h-3 rounded-full transition-all duration-1000 ease-out glow-primary"
                     style={{ width: `${skill.level}%` }}
                   ></div>
                 </div>
@@ -340,51 +353,51 @@ const Index = () => {
       {/* Contact Section */}
       <section id="contact" className="py-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-16 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+          <h2 className="text-4xl font-bold mb-16 gradient-text">
             Let's Work Together
           </h2>
           <div className="grid md:grid-cols-2 gap-12">
-            <div className="space-y-8">
+            <div className="space-y-8 animate-slide-in-left">
               <div className="text-left">
                 <h3 className="text-2xl font-semibold mb-6">Get In Touch</h3>
-                <p className="text-gray-300 mb-8">
+                <p className="text-muted-foreground mb-8">
                   I'm always open to discussing new opportunities, interesting projects, or just having a chat about technology.
                 </p>
                 <div className="space-y-4">
                   <div className="flex items-center space-x-4">
-                    <Mail className="text-purple-400" size={20} />
+                    <Mail className="text-primary" size={20} />
                     <span>yohanestamirat2023@gmail.com</span>
                   </div>
                   <div className="flex items-center space-x-4">
-                    <Phone className="text-purple-400" size={20} />
+                    <Phone className="text-primary" size={20} />
                     <span>Available upon request</span>
                   </div>
                 </div>
               </div>
             </div>
-            <Card className="p-8 bg-white/5 border-white/10">
+            <Card className="glass p-8 animate-slide-in-right">
               <form className="space-y-6">
                 <div>
                   <Input 
                     placeholder="Your Name" 
-                    className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                    className="bg-input/50 border-border text-foreground placeholder:text-muted-foreground"
                   />
                 </div>
                 <div>
                   <Input 
                     placeholder="Your Email" 
                     type="email"
-                    className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                    className="bg-input/50 border-border text-foreground placeholder:text-muted-foreground"
                   />
                 </div>
                 <div>
                   <Textarea 
                     placeholder="Your Message" 
                     rows={4}
-                    className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                    className="bg-input/50 border-border text-foreground placeholder:text-muted-foreground"
                   />
                 </div>
-                <Button className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600">
+                <Button className="w-full bg-gradient-primary hover:glow-primary">
                   Send Message
                 </Button>
               </form>
@@ -398,19 +411,19 @@ const Index = () => {
         {!isChatOpen ? (
           <Button
             onClick={() => setIsChatOpen(true)}
-            className="w-14 h-14 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 shadow-lg hover:scale-110 transition-all"
+            className="w-14 h-14 rounded-full bg-gradient-primary hover:glow-primary shadow-lg hover-lift"
           >
             <MessageCircle size={24} />
           </Button>
         ) : (
-          <Card className="w-80 h-96 bg-black/90 border-white/20 flex flex-col">
-            <div className="flex justify-between items-center p-4 border-b border-white/20">
+          <Card className="w-80 h-96 glass flex flex-col">
+            <div className="flex justify-between items-center p-4 border-b border-border/30">
               <h3 className="font-semibold">Chat with AI Assistant</h3>
               <Button
                 onClick={() => setIsChatOpen(false)}
                 variant="ghost"
                 size="sm"
-                className="text-gray-400 hover:text-white"
+                className="text-muted-foreground hover:text-foreground"
               >
                 <X size={16} />
               </Button>
@@ -420,27 +433,27 @@ const Index = () => {
                 <div key={index} className={`flex ${msg.type === 'user' ? 'justify-end' : 'justify-start'}`}>
                   <div className={`max-w-xs p-3 rounded-lg ${
                     msg.type === 'user' 
-                      ? 'bg-purple-500 text-white' 
-                      : 'bg-white/10 text-gray-300'
+                      ? 'bg-primary text-primary-foreground' 
+                      : 'glass text-muted-foreground'
                   }`}>
                     <p className="text-sm">{msg.message}</p>
                   </div>
                 </div>
               ))}
             </div>
-            <div className="p-4 border-t border-white/20">
+            <div className="p-4 border-t border-border/30">
               <div className="flex space-x-2">
                 <Input
                   placeholder="Ask me anything..."
                   value={currentMessage}
                   onChange={(e) => setCurrentMessage(e.target.value)}
                   onKeyPress={(e) => e.key === 'Enter' && handleChatSubmit()}
-                  className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                  className="bg-input/50 border-border text-foreground placeholder:text-muted-foreground"
                 />
                 <Button 
                   onClick={handleChatSubmit}
                   size="sm"
-                  className="bg-purple-500 hover:bg-purple-600"
+                  className="bg-primary hover:bg-primary/90"
                 >
                   <Send size={16} />
                 </Button>
@@ -451,8 +464,8 @@ const Index = () => {
       </div>
 
       {/* Footer */}
-      <footer className="py-8 px-6 bg-black/40 text-center">
-        <p className="text-gray-400">
+      <footer className="py-8 px-6 bg-surface text-center">
+        <p className="text-muted-foreground">
           © 2024 Yohanes Tamirat.
         </p>
       </footer>
