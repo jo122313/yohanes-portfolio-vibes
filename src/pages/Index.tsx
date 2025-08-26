@@ -19,17 +19,17 @@ const Index = () => {
   const projects = [
     {
       title: 'JobConnect Platform',
-      description: 'Full-stack job search platform connecting job seekers with employers. Features include job listings, company profiles, application tracking, and user authentication.',
-      tech: ['React', 'Node.js', 'MongoDB', 'Express.js', 'JWT'],
+      description: 'A web-based recruitment platform designed to simplify and streamline the hiring process. Enables employers to post jobs, manage applications, and request interviews, while job seekers can create profiles, search jobs, and receive AI-powered personalized recommendations. Includes admin panel for employer approval.',
+      tech: ['React.js', 'Express.js', 'Node.js', 'MongoDB', 'Material UI', 'JWT', 'AI Recommendations'],
       github: 'https://github.com/jo122313/talentconnect',
       live: 'https://talentconnect-eight.vercel.app/',
       image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop'
     },
     {
-      title: 'Contact Management System',
-      description: 'Comprehensive contact management application with CRUD operations, search functionality, and organized contact categorization for efficient relationship management.',
-      tech: ['React', 'TypeScript', 'Local Storage', 'CSS3'],
-      github: 'https://github.com/yohanestamirat/contact-management',
+      title: 'Contact Management Application',
+      description: 'A web application built to store, organize, and manage user contacts with LinkedIn login integration for authentication. Features role-based access control, email invitations to contacts, and real-time Ethiopian banks exchange rate display as an integrated feature.',
+      tech: ['.NET 8', 'React.js', 'SQL Server', 'LinkedIn API', 'Email Integration', 'Role-based Access'],
+      github: 'https://github.com/jo122313/ContactManagementApp',
       live: '#',
       image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&h=400&fit=crop'
     },
